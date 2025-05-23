@@ -1,6 +1,7 @@
 package Lab402.Controller.impl;
 
 import Lab402.Repository.PatientRepository;
+import Lab402.model.EmployeeStatus;
 import Lab402.model.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +34,9 @@ public class PatientController {
         return patientRepository.findAllPatientsByDoctorDepartment(department);
     }
 
-
+    @GetMapping("/patients/doctorstatus/{employeeStatus}")
+    public List<Patient> findAllPatientsByDoctorStatusOff(@PathVariable EmployeeStatus employeeStatus){
+        return patientRepository.findAllPatientsByDoctorStatusOff(employeeStatus);
+    }
 
 }
